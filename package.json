@@ -16,5 +16,11 @@
     "url": "https://github.com/codeuniquecode/CodeAlpha_URLShortner/issues"
   },
   "homepage": "https://github.com/codeuniquecode/CodeAlpha_URLShortner#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1"
+  }
 }
