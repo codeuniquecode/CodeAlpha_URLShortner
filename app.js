@@ -42,11 +42,12 @@ app.post('/shorten',async(req,res)=>{
     return;
     }
     await shortData.save();
-    console.log('data saved ');
+    return res.status(404).json({status:200,message:shortUrl});
+    // console.log('data saved ');
     // return res.render('home');
     } catch (error) {
         console.log(error);
-        return res.status(404).json({message:"error in shortening data"});
+        return res.status(404).json({status:404,message:"error in shortening data"});
 
     }
 
