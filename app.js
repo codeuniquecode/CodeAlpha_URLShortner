@@ -39,10 +39,11 @@ app.post('/shorten',async(req,res)=>{
         shortUrl
     });
     await shortData.save();
-    return;
+    
+    return res.status(200).json({status:200,message:shortUrl});
     }
     await shortData.save();
-    return res.status(404).json({status:200,message:shortUrl});
+    return res.status(200).json({status:200,message:shortUrl});
     // console.log('data saved ');
     // return res.render('home');
     } catch (error) {
@@ -51,6 +52,16 @@ app.post('/shorten',async(req,res)=>{
 
     }
 
+});
+app.get('/:url',async(req,res)=>{
+    const shortUrl = req.params.url;
+    const validUrl = await urls.findOne({
+        shortUrl
+    });
+    if(!validUrl){
+        return res.status(404).json({message:"Invalid URL"});
+    }
+    return res.redirect(validUrl.longUrl);
 })
 
 app.listen(port,()=>{

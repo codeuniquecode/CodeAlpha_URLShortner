@@ -40,7 +40,13 @@
                 return;
             }
             if(response.status===200){
-                message.textContent = `Your shorten URL is ${response.message}`;
+        message.innerHTML = `
+  Your shortened URL is 
+  <a href="http://localhost:3000/${response.message}" target="_blank">
+    http://localhost:3000/${response.message}
+  </a>`;
+
+
                 return;
             }
         });
